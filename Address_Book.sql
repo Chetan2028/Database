@@ -107,3 +107,23 @@ Select * from Address_Book_Type
 Insert into Address_Book_Type values(1,'Friend'),(2,'Friend'),(3,'Family'),(4,'Family');
 
 
+/*UC6 --> Retireve the person belong to a particular city or state*/
+
+select * from New_Address_Book where city = 'Belgaum';
+
+select * from New_Address_Book where state = 'Andhra Pradesh'
+
+/*UC 7 --> A bility to get the count of address book by state or city*/
+Select Count(state) as State_Count from New_Address_Book where state = 'Karnataka' group by state 
+
+Select Count(city) as City_Count from New_Address_Book where city = 'Bangalore' group by city 
+
+/*UC8 --> To sort alphabetically*/
+Select * from New_Address_Book order by First_Name
+
+/*UC10 -->  Ability to get the number of contact persons by type*/
+Select Count(Type) , Type
+from Address_Book_Name ad_name  , Address_Book_Type ad_type
+where ad_name.Id = ad_type.Id
+group by Type;
+
